@@ -10,7 +10,7 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
   selector: 'app-blog-post',
   template: `
     <ng-container *ngIf="blogPost; else loading">
-      <h1>{{ blogPost.fields.title }}</h1>
+      <h1 class="title">{{ blogPost.fields.title }}</h1>
       <img
         [src]="imageUrl"
         [alt]="blogPost.fields.featuredImage.fields.title"
