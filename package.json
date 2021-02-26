@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "config": "node set-env.js",
+    "start": "npm run config && ng serve",
+    "build": "npm run config && ng build",
+    "test": "npm run config && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -19,7 +20,9 @@
     "@angular/platform-browser": "~11.2.1",
     "@angular/platform-browser-dynamic": "~11.2.1",
     "@angular/router": "~11.2.1",
+    "colors": "^1.4.0",
     "contentful": "^8.1.7",
+    "dotenv": "^8.2.0",
     "ngx-contentful-rich-text": "^0.4.0",
     "regenerator-runtime": "^0.13.7",
     "rxjs": "~6.6.0",
@@ -41,7 +44,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
+    "ts-node": "^8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.2"
   }
