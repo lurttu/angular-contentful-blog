@@ -3,6 +3,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import "regenerator-runtime/runtime.js";
 
 if (environment.production) {
   enableProdMode();
