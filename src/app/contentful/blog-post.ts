@@ -1,4 +1,4 @@
-import { Asset, RichTextContent } from 'contentful';
+import { Asset, Entry } from 'contentful';
 
 /**
  * This model represents our Blog Post content type in Contentful and
@@ -13,4 +13,11 @@ export interface BlogPost {
   description: string;
   featuredImage: Asset;
   readTime: number;
+  author: Entry<Author>;
+}
+
+export interface Author {
+  name: string;
+  bio: string;
+  image: Asset;
 }

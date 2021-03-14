@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { BlogPostListComponent } from './blog-post-list/blog-post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { NgxContentfulRichTextModule } from 'ngx-contentful-rich-text';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogPostListComponent,
-    BlogPostComponent
+    BlogPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxContentfulRichTextModule
+    NgxContentfulRichTextModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

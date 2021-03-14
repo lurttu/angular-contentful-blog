@@ -8,19 +8,7 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
 
 @Component({
   selector: 'app-blog-post',
-  template: `
-    <ng-container *ngIf="blogPost; else loading">
-      <h1 class="title">{{ blogPost.fields.title }}</h1>
-      <img
-        [src]="imageUrl"
-        [alt]="blogPost.fields.featuredImage.fields.title"
-      />
-      <ngx-contentful-rich-text [document]="blogPost.fields.body">
-      </ngx-contentful-rich-text>
-      <a class="underline--magical--link" routerLink="/posts">Go back</a>
-    </ng-container>
-    <ng-template #loading>Loading...</ng-template>
-  `,
+  templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.sass'],
 })
 export class BlogPostComponent implements OnInit {

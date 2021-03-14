@@ -6,14 +6,7 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
 
 @Component({
   selector: 'app-blog-post-list',
-  template: `
-    <article *ngFor="let blogPost of blogPosts">
-      <h2>
-        <a class="underline--magical--link" [routerLink]="['/post',blogPost.fields.slug]">{{ blogPost.fields.title }}</a>
-      </h2>
-      <p>{{ blogPost.fields.description }}</p>
-    </article>
-  `,
+  templateUrl: './blog-post-list.component.html',
   styleUrls: ['./blog-post-list.component.sass'],
 })
 export class BlogPostListComponent implements OnInit {
@@ -24,6 +17,9 @@ export class BlogPostListComponent implements OnInit {
   ngOnInit(): void {
     this.contentfulApiService
       .getBlogPosts()
-      .then((blogPosts) => {this.blogPosts = blogPosts.items});
+      .then((blogPosts) => {
+        this.blogPosts = blogPosts.items;
+        console.log(this.blogPosts)
+      });
   }
 }

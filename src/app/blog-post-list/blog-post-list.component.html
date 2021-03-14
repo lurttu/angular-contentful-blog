@@ -1,0 +1,28 @@
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12 herotitle">
+      <h1 class="mat-display-3 title">artunkeitt.io</h1>
+      <p class="mat-caption subtitle">stuff about stuff</p>
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-8 post-list">
+      <article *ngFor="let blogPost of blogPosts">
+        <a [routerLink]="['/post',blogPost.fields.slug]">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <img mat-card-avatar src="{{blogPost.fields.author.fields.image.fields.file.url}}" alt="{{blogPost.fields.author.fields.name}}" />
+            <mat-card-title>{{ blogPost.fields.title }}</mat-card-title>
+            <mat-card-subtitle>{{ blogPost.fields.description }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{blogPost.fields.featuredImage.fields.file.url}}?w=620&h=270" alt="alt tähän">
+          <mat-card-actions>
+            <button mat-mini-fab><mat-icon>chrome_reader_mode</mat-icon></button>
+          </mat-card-actions>
+        </mat-card>
+        </a>
+      </article>
+    </div>
+    <div class="mdc-layout-grid__cell--span-4 post-list">Recent posts etc</div>
+  </div>
+</div>
