@@ -1,5 +1,7 @@
 # ContentfulAngularBlog
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/01683193-7d57-47fd-9973-87e627c56e7e/deploy-status)](https://app.netlify.com/sites/artunkeittio/deploys)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
 ## Development server
