@@ -14,10 +14,26 @@ export interface BlogPost {
   featuredImage: Asset;
   readTime: number;
   author: Entry<Author>;
+  recipe?: Entry<Recipe>;
 }
 
 export interface Author {
   name: string;
   bio: string;
   image: Asset;
+}
+
+export interface Recipe {
+  ingredients: Entry<Ingredient>[];
+  servings: string;
+  steps: any;
+  time: string;
+  title: string;
+}
+
+export interface Ingredient {
+  name: string;
+  amount: number;
+  unit: string;
+  alt: string;
 }

@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  app-recipe {
+    margin: 2rem 0;
+  }
   .hero {
     position: relative;
     display: flex;
@@ -53,4 +56,8 @@
       }
     }
   }
+}
+
+.underline--magical--link {
+  margin: 2rem 0;
 }

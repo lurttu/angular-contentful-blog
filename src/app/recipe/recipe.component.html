@@ -1,0 +1,26 @@
+<ng-container *ngIf="recipe">
+  <div class="recipe">
+    <div class="recipe-header">
+      <h1 class="recipe-title">{{ recipe.fields.title }}</h1>
+    </div>
+    <div class="recipe-content">
+      <div class="recipe-ingredients">
+        <h2>Ainesosat</h2>
+        <ul>
+          <li
+            *ngFor="let ingredient of recipe.fields.ingredients"
+            class="ingredient"
+          >
+            <div class="ingredient-title">
+              <span>{{ ingredient.fields.name }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="recipe-instructions">
+        <ngx-contentful-rich-text [document]="recipe.fields.steps">
+        </ngx-contentful-rich-text>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Entry } from 'contentful';
-import { BlogPost } from '../contentful/blog-post';
+import { BlogPost, Recipe } from '../contentful/blog-post';
 import { ContentfulApiService } from '../contentful/contentful-api.service';
 
 @Component({
@@ -13,6 +13,7 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
 export class BlogPostComponent implements OnInit {
   blogPost: Entry<BlogPost>;
   imageUrl: string;
+  recipe: Entry<Recipe> | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,10 @@ export class BlogPostComponent implements OnInit {
 
     this.contentfulApiService.getBlogPost(slug).then((blogPost) => {
       this.blogPost = blogPost;
+
+      this.recipe = !!this.blogPost.fields.recipe
+        ? this.blogPost.fields.recipe
+        : null;
 
       this.imageUrl = `${this.blogPost.fields.featuredImage.fields.file.url}?w=1860&h=810`;
 

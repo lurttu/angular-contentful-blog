@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
   ContentfulClientApi,
+  createClient,
   Entry,
   EntryCollection,
-  createClient,
 } from 'contentful';
-
 import { environment } from '../../environments/environment';
 import { BlogPost } from './blog-post';
 
@@ -40,7 +39,7 @@ export class ContentfulApiService {
    */
   getBlogPosts(query?: object): Promise<EntryCollection<BlogPost>> {
     return this.clientApi.getEntries<BlogPost>(
-      Object.assign({}, query, { content_type: 'blogPost' })
+      Object.assign({}, query, { content_type: 'blogPost', include: 10 })
     );
   }
 }
