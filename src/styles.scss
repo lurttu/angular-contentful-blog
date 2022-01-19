@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@material/layout-grid/mdc-layout-grid";
+
+body {
+  font-family: Helvetica, sans-serif;
+  .post-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+  }
+  a {
+    @extend .underline--magical--link;
+  }
+  @media screen and (max-width: 600px) {
+    .post-title {
+      font-size: 2rem;
+    }
+  }
+}
+
+.underline--magical--link {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    background-size: 100% 88%;
+  }
+}

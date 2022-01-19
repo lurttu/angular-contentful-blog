@@ -1,11 +1,28 @@
 <ng-container *ngIf="blogPost; else loading">
-  <h1 class="post-title">{{ blogPost.fields.title }}</h1>
-  <img
-    [src]="imageUrl"
-    [alt]="blogPost.fields.featuredImage.fields.title"
-  />
-  <ngx-contentful-rich-text [document]="blogPost.fields.body">
-  </ngx-contentful-rich-text>
-  <a class="underline--magical--link" routerLink="/posts">Go back</a>
+  <div class="container">
+    <div class="hero">
+      <h1 class="post-title">{{ blogPost.fields.title }}</h1>
+      <img
+        [src]="imageUrl"
+        [alt]="blogPost.fields.featuredImage.fields.title"
+      />
+    </div>
+    <div class="post">
+      <div class="created-at">
+        <p>
+          Lisätty: {{ blogPost.sys.createdAt | date: "dd.MM.YYYY HH:mm" }}
+          <span
+            class="updated-at"
+            *ngIf="blogPost.sys.updatedAt > blogPost.sys.createdAt"
+            >Päivitetty:
+            {{ blogPost.sys.updatedAt | date: "dd.MM.YYYY HH:mm" }}</span
+          >
+        </p>
+      </div>
+      <ngx-contentful-rich-text [document]="blogPost.fields.body">
+      </ngx-contentful-rich-text>
+    </div>
+    <a class="underline--magical--link" routerLink="/posts">Go back</a>
+  </div>
 </ng-container>
 <ng-template #loading>Loading...</ng-template>

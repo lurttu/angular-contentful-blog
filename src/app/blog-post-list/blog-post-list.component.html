@@ -8,18 +8,24 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12 post-list">
       <article *ngFor="let blogPost of blogPosts">
-        <a [routerLink]="['/post',blogPost.fields.slug]">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <img mat-card-avatar src="{{blogPost.fields.author.fields.image.fields.file.url}}" alt="{{blogPost.fields.author.fields.name}}" />
-            <mat-card-title>{{ blogPost.fields.title }}</mat-card-title>
-            <mat-card-subtitle>{{ blogPost.fields.description }}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src="{{blogPost.fields.featuredImage.fields.file.url}}?w=1200&h=870" alt="alt tähän">
-          <mat-card-actions>
-            <button mat-mini-fab><mat-icon>chrome_reader_mode</mat-icon></button>
-          </mat-card-actions>
-        </mat-card>
+        <a [routerLink]="['/post', blogPost.fields.slug]">
+          <div class="post-list-item">
+            <img
+              src="{{
+                blogPost.fields.featuredImage.fields.file.url
+              }}?w=300&h=217"
+              [alt]="blogPost.fields.author.fields.name"
+              class="post-list-item-image"
+            />
+            <div class="post-list-item-content">
+              <h2 class="post-list-item-title text">
+                {{ blogPost.fields.title }}
+              </h2>
+              <p class="post-list-item-description text">
+                {{ blogPost.fields.description }}
+              </p>
+            </div>
+          </div>
         </a>
       </article>
     </div>

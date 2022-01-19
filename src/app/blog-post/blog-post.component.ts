@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Asset, Entry } from 'contentful';
-
+import { Entry } from 'contentful';
 import { BlogPost } from '../contentful/blog-post';
 import { ContentfulApiService } from '../contentful/contentful-api.service';
 
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.sass'],
+  styleUrls: ['./blog-post.component.scss'],
 })
 export class BlogPostComponent implements OnInit {
   blogPost: Entry<BlogPost>;
-  imageUrl: string; 
+  imageUrl: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,11 +24,10 @@ export class BlogPostComponent implements OnInit {
   ngOnInit(): void {
     const slug: string = this.route.snapshot.paramMap.get('slug') || '';
 
-
     this.contentfulApiService.getBlogPost(slug).then((blogPost) => {
       this.blogPost = blogPost;
 
-      this.imageUrl = `${this.blogPost.fields.featuredImage.fields.file.url}?w=1240&h=540`
+      this.imageUrl = `${this.blogPost.fields.featuredImage.fields.file.url}?w=1860&h=810`;
 
       // Set the document title
       this.title.setTitle(blogPost.fields.title);
