@@ -21,7 +21,10 @@
         </ul>
       </div>
       <div class="recipe-instructions">
-        <ngx-contentful-rich-text [document]="recipe.fields.steps">
+        <ngx-contentful-rich-text
+          [document]="recipe.fields.steps"
+          [nodeRenderers]="nodeRenderers"
+        >
         </ngx-contentful-rich-text>
       </div>
     </div>
