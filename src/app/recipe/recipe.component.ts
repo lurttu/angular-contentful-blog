@@ -22,9 +22,14 @@ export class EmbeddedAssetComponent extends NodeRenderer implements OnInit {
 })
 export class RecipeComponent implements OnInit {
   @Input() recipe: Entry<Recipe> | null;
+  public imagesVisible: boolean;
   nodeRenderers: Record<string, NodeRendererResolver> = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => EmbeddedAssetComponent,
   };
 
   ngOnInit(): void {}
+
+  public imageToggle(): void {
+    this.imagesVisible = !this.imagesVisible;
+  }
 }

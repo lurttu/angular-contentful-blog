@@ -1,0 +1,9 @@
+<div class="step">
+  <div class="images" *ngIf="showImages">
+    <img
+      *ngFor="let image of step.fields.image"
+      src="{{ image.fields.file.url }}?w=300&h=217"
+    />
+  </div>
+  <div class="step-content">{{ step.fields.text }}</div>
+</div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxContentfulRichTextModule } from 'ngx-contentful-rich-text';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { BlogPostListComponent } from './blog-post-list/blog-post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { StepComponent } from './step/step.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { RecipeComponent } from './recipe/recipe.component';
     BlogPostListComponent,
     BlogPostComponent,
     RecipeComponent,
+    StepComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { RecipeComponent } from './recipe/recipe.component';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

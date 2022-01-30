@@ -2,6 +2,14 @@
   <div class="recipe">
     <div class="recipe-header">
       <h1 class="recipe-title">{{ recipe.fields.title }}</h1>
+      <button
+        mat-icon-button
+        (click)="imageToggle()"
+        matTooltip="Show images"
+        matTooltipPosition="right"
+      >
+        <mat-icon>insert_photo</mat-icon>
+      </button>
     </div>
     <div class="recipe-content">
       <div class="recipe-ingredients">
@@ -12,20 +20,25 @@
             class="ingredient"
           >
             <div class="ingredient-title">
-              <span
-                >{{ ingredient.fields.amount }} {{ ingredient.fields.unit }}
-                {{ ingredient.fields.name }}</span
-              >
+              <span class="amount"
+                >{{ ingredient.fields.amount }}
+                {{ ingredient.fields.unit }}</span
+              ><span class="ingredient-name">{{ ingredient.fields.name }}</span>
             </div>
           </li>
         </ul>
       </div>
       <div class="recipe-instructions">
-        <ngx-contentful-rich-text
+        <!-- <ngx-contentful-rich-text
           [document]="recipe.fields.steps"
           [nodeRenderers]="nodeRenderers"
         >
-        </ngx-contentful-rich-text>
+        </ngx-contentful-rich-text> -->
+        <app-step
+          *ngFor="let step of recipe.fields.stepsRef"
+          [step]="step"
+          [showImages]="imagesVisible"
+        ></app-step>
       </div>
     </div>
   </div>

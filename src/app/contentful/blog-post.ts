@@ -27,8 +27,14 @@ export interface Recipe {
   ingredients: Entry<Ingredient>[];
   servings: string;
   steps: any;
+  stepsRef: Entry<Step>[];
   time: string;
   title: string;
+}
+
+export interface Step {
+  text: string;
+  image: Asset[];
 }
 
 export interface Ingredient {
