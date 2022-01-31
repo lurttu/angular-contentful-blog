@@ -22,7 +22,7 @@ export class EmbeddedAssetComponent extends NodeRenderer implements OnInit {
 })
 export class RecipeComponent implements OnInit {
   @Input() recipe: Entry<Recipe> | null;
-  public imagesVisible: boolean;
+  public imagesVisible = true;
   nodeRenderers: Record<string, NodeRendererResolver> = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => EmbeddedAssetComponent,
   };
