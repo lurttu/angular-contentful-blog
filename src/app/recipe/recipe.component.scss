@@ -47,6 +47,9 @@
     @media screen and (max-width: 600px) {
       flex-direction: column;
     }
+    @media screen and (min-width: 601px) {
+      gap: 5rem;
+    }
     align-items: flex-start;
     .recipe-content-title {
       font-size: 1.5rem;
