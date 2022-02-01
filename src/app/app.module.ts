@@ -11,7 +11,9 @@ import { AppComponent } from './app.component';
 import { BlogPostListComponent } from './blog-post-list/blog-post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import WordleService from './services/wordle.service';
 import { StepComponent } from './step/step.component';
+import { WordleComponent } from './wordle/wordle.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { StepComponent } from './step/step.component';
     BlogPostComponent,
     RecipeComponent,
     StepComponent,
+    WordleComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { StepComponent } from './step/step.component';
     MatIconModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [WordleService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

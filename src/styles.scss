@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "@material/layout-grid/mdc-layout-grid";
+@import "simple-keyboard/build/css/index.css";
 
 body {
   font-family: "EB Garamond", serif;
