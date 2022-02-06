@@ -1,19 +1,50 @@
 <div class="container">
   <div class="game">
-    <div *ngFor="let i of [].constructor(5)" class="row">
-      <div *ngFor="let j of [].constructor(6)" class="cell">
-        <div class="letter">{{ i }}{{ j }}</div>
+    <div *ngFor="let i of [].constructor(5); let iIndex = index" class="row">
+      <div
+        *ngFor="let j of [].constructor(6); let jIndex = index"
+        class="cell"
+        [class.green]="word[iIndex] === guesses[jIndex][iIndex].value"
+        [class.yellow]="
+          checkForStatus(guesses[jIndex][iIndex].value, 'present')
+        "
+        [class.incorrect]="
+          checkForStatus(guesses[jIndex][iIndex].value, 'incorrect')
+        "
+      >
+        <div class="letter">
+          {{
+            !!guesses[jIndex][iIndex].value
+              ? guesses[jIndex][iIndex].value
+              : !!currentGuess &&
+                currentGuess[iIndex] &&
+                currentGuess[iIndex].value &&
+                jIndex === currentGuessIndex
+              ? currentGuess[iIndex].value
+              : ""
+          }}
+        </div>
       </div>
     </div>
   </div>
 
-  <div style="text-align: center">
-    <input
-      (input)="onInputChange($event)"
-      class="input"
-      [value]="value"
-      placeholder="Tap on the virtual keyboard to start"
-    />
-    <div class="simple-keyboard"></div>
+  <div *ngIf="message.length > 0" class="message">
+    {{ message }}
+    <button (click)="reset()">Uudestaan!</button>
+  </div>
+
+  <div class="keyboard">
+    <div *ngFor="let row of keyboardRows" class="kb-row">
+      <button
+        *ngFor="let button of row"
+        class="kb-button"
+        (click)="keyPress(button.value)"
+        [class.yellow]="button.status === 'present'"
+        [class.incorrect]="button.status === 'incorrect'"
+        [class.green]="button.status === 'correct'"
+      >
+        {{ button.value }}
+      </button>
+    </div>
   </div>
 </div>
