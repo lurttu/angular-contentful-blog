@@ -63,12 +63,9 @@
     }
     &.dev {
       max-width: 600px;
-    }
-    @media screen and (max-width: 600px) {
-      /* .created-at {
-        position: relative;
-        left: 1rem;
-      } */
+      @media screen and (max-width: 600px) {
+        max-width: 100vw;
+      }
     }
   }
 }
