@@ -10,8 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogPostListComponent } from './blog-post-list/blog-post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BaseComponent } from './components/base.component';
+import { CustomParagraphComponent } from './components/custom-paragraph.component';
 import { EmbeddedAssetComponent } from './components/embedded-asset.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { HighlightService } from './services/highlight.service';
 import WordleService from './services/wordle.service';
 import { StepComponent } from './step/step.component';
 import { WordleComponent } from './wordle/wordle.component';
@@ -25,6 +28,8 @@ import { WordleComponent } from './wordle/wordle.component';
     StepComponent,
     WordleComponent,
     EmbeddedAssetComponent,
+    CustomParagraphComponent,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { WordleComponent } from './wordle/wordle.component';
     MatIconModule,
     MatTooltipModule,
   ],
-  providers: [WordleService],
+  providers: [WordleService, HighlightService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@
         [alt]="blogPost.fields.featuredImage.fields.title"
       />
     </div>
-    <div class="post">
+    <div class="post" [class.dev]="isDevPost">
       <div class="created-at">
         <p>
           Lisätty: {{ blogPost.sys.createdAt | date: "dd.MM.YYYY HH:mm" }}

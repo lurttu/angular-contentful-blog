@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Entry } from 'contentful';
 import { NodeRendererResolver } from 'ngx-contentful-rich-text';
+import { BaseComponent } from '../components/base.component';
+import { CustomParagraphComponent } from '../components/custom-paragraph.component';
 import { EmbeddedAssetComponent } from '../components/embedded-asset.component';
 import { BlogPost, Recipe } from '../contentful/blog-post';
 import { ContentfulApiService } from '../contentful/contentful-api.service';
@@ -13,12 +15,14 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
   templateUrl: './blog-post.component.html',
   styleUrls: ['./blog-post.component.scss'],
 })
-export class BlogPostComponent implements OnInit {
+export class BlogPostComponent extends BaseComponent implements OnInit {
   blogPost: Entry<BlogPost>;
   imageUrl: string;
+  isDevPost = false;
   recipe: Entry<Recipe> | null;
   nodeRenderers: Record<string, NodeRendererResolver> = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => EmbeddedAssetComponent,
+    [BLOCKS.PARAGRAPH]: (node) => CustomParagraphComponent,
   };
 
   constructor(
@@ -26,9 +30,19 @@ export class BlogPostComponent implements OnInit {
     private meta: Meta,
     private title: Title,
     private contentfulApiService: ContentfulApiService
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
+    this.subscriptions.push(
+      this.route.data.subscribe((data) => {
+        if (data && data.devPost) {
+          this.isDevPost = true;
+        }
+      })
+    );
+
     const slug: string = this.route.snapshot.paramMap.get('slug') || '';
 
     this.contentfulApiService.getBlogPost(slug).then((blogPost) => {
