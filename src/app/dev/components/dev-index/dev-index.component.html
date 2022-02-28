@@ -1,0 +1,33 @@
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12 herotitle">
+      <h1 class="mat-display-3 site-title">dev.artunkeitt.io</h1>
+      <p class="mat-caption subtitle">dev related stuff</p>
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12 post-list">
+      <article *ngFor="let blogPost of blogPosts">
+        <a [routerLink]="['/post', blogPost.fields.slug]">
+          <div class="post-list-item">
+            <img
+              src="{{
+                blogPost.fields.featuredImage.fields.file.url
+              }}?w=300&h=217"
+              [alt]="blogPost.fields.author.fields.name"
+              class="post-list-item-image"
+            />
+            <div class="post-list-item-content">
+              <h2 class="post-list-item-title text">
+                {{ blogPost.fields.title }}
+              </h2>
+              <p class="post-list-item-description text">
+                {{ blogPost.fields.description }}
+              </p>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</div>

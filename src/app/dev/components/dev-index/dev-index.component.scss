@@ -1,0 +1,78 @@
+
+.herotitle {
+  text-align: center;
+  .title {
+    margin: 0 auto 0;
+  }
+}
+.post-list {
+  margin: 2em auto;
+  max-width: 800px;
+}
+
+.site-title {
+  font-family: "DM Serif Display", serif;
+}
+
+.post-list-item {
+  display: flex;
+  flex-direction: row;
+  height: 15rem;
+  @media screen and (max-width: 600px) {
+    height: 10rem;
+  }
+  margin-bottom: 1rem;
+  .post-list-item-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%
+    );
+    -webkit-mask-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%
+    );
+  }
+  .post-list-item-content {
+    margin: auto 0;
+    .text {
+      @media screen and (max-width: 600px) {
+        left: -1rem;
+      }
+      position: relative;
+      left: -3rem;
+    }
+    .post-list-item-title {
+      @media screen and (max-width: 600px) {
+        font-size: 1.2rem;
+      }
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .post-list-item-description {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      @media screen and (max-width: 600px) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        margin-right: auto;
+      }
+    }
+  }
+  &:hover {
+    box-shadow: 11px 11px 8px -8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
