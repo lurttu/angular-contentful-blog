@@ -10,12 +10,13 @@ import { ContentfulApiService } from '../contentful/contentful-api.service';
 })
 export class BlogPostListComponent implements OnInit {
   blogPosts: Array<Entry<BlogPost>>;
+  devBlogPosts: Array<Entry<BlogPost>>;
 
   constructor(private contentfulApiService: ContentfulApiService) {}
 
   ngOnInit(): void {
     this.contentfulApiService.getBlogPosts().then((blogPosts) => {
-      this.blogPosts = blogPosts.items;
+      this.blogPosts = blogPosts.items.filter((post) => !post.fields.devPost);
       console.log(this.blogPosts);
     });
   }

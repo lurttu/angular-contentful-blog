@@ -6,13 +6,13 @@ import { DevIndexComponent } from './dev/components/dev-index/dev-index.componen
 import { WordleComponent } from './wordle/wordle.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: '', redirectTo: '/food', pathMatch: 'full' },
   {
     path: 'dev',
     loadChildren: () => import('./dev/dev.module').then((m) => m.DevModule),
   },
-  { path: 'posts', component: BlogPostListComponent },
-  { path: 'post/:slug', component: BlogPostComponent },
+  { path: 'food', component: BlogPostListComponent },
+  { path: 'recipe/:slug', component: BlogPostComponent },
 ];
 
 @NgModule({

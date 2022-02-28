@@ -14,6 +14,7 @@ export interface BlogPost {
   featuredImage: Asset;
   readTime: number;
   author: Entry<Author>;
+  devPost: boolean;
   recipe?: Entry<Recipe>;
 }
 

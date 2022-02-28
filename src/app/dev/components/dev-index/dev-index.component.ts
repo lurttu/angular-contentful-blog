@@ -15,7 +15,7 @@ export class DevIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulApiService.getBlogPosts().then((blogPosts) => {
-      this.blogPosts = blogPosts.items;
+      this.blogPosts = blogPosts.items.filter((post) => post.fields.devPost);
       console.log(this.blogPosts);
     });
   }

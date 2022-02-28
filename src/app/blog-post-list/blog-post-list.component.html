@@ -8,7 +8,7 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12 post-list">
       <article *ngFor="let blogPost of blogPosts">
-        <a [routerLink]="['/post', blogPost.fields.slug]">
+        <a [routerLink]="['/recipe', blogPost.fields.slug]">
           <div class="post-list-item">
             <img
               src="{{
