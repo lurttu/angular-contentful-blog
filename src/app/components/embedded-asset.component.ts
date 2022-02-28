@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { NgZoom } from 'ng-zoom';
 import { NodeRenderer } from 'ngx-contentful-rich-text';
+import { Subscription } from 'rxjs';
 
 @Component({
   template: `<img
@@ -20,6 +21,7 @@ export class EmbeddedAssetComponent
   extends NodeRenderer
   implements OnInit, AfterViewInit
 {
+  protected subscriptions = new Array<Subscription>();
   fields: any;
   width = 1270;
   height = 690;
