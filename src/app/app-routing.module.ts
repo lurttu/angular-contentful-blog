@@ -6,6 +6,8 @@ import { DevIndexComponent } from './dev/components/dev-index/dev-index.componen
 import { WordleComponent } from './wordle/wordle.component';
 
 const routes: Routes = [
+  // TODO: add homepage with introduction and sections for dev and food
+  // which show featured links etc
   { path: '', redirectTo: '/food', pathMatch: 'full' },
   {
     path: 'dev',

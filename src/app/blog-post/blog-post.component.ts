@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { Entry } from 'contentful';
+import { NodeRendererResolver } from 'ngx-contentful-rich-text';
+import { EmbeddedAssetComponent } from '../components/embedded-asset.component';
 import { BlogPost, Recipe } from '../contentful/blog-post';
 import { ContentfulApiService } from '../contentful/contentful-api.service';
 
@@ -14,6 +17,9 @@ export class BlogPostComponent implements OnInit {
   blogPost: Entry<BlogPost>;
   imageUrl: string;
   recipe: Entry<Recipe> | null;
+  nodeRenderers: Record<string, NodeRendererResolver> = {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => EmbeddedAssetComponent,
+  };
 
   constructor(
     private route: ActivatedRoute,

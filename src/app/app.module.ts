@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogPostListComponent } from './blog-post-list/blog-post-list.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import { EmbeddedAssetComponent } from './components/embedded-asset.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import WordleService from './services/wordle.service';
 import { StepComponent } from './step/step.component';
@@ -23,6 +24,7 @@ import { WordleComponent } from './wordle/wordle.component';
     RecipeComponent,
     StepComponent,
     WordleComponent,
+    EmbeddedAssetComponent,
   ],
   imports: [
     BrowserModule,

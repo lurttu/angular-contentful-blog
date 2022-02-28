@@ -2,18 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { Entry } from 'contentful';
 import { NodeRenderer, NodeRendererResolver } from 'ngx-contentful-rich-text';
+import { EmbeddedAssetComponent } from '../components/embedded-asset.component';
 import { Recipe } from '../contentful/blog-post';
-
-@Component({
-  template: `<img src="{{ fields.file.url }}?w=300&h=217" class="image" />`,
-})
-export class EmbeddedAssetComponent extends NodeRenderer implements OnInit {
-  fields: any;
-
-  ngOnInit(): void {
-    this.fields = this.node.data.target.fields;
-  }
-}
 
 @Component({
   selector: 'app-recipe',

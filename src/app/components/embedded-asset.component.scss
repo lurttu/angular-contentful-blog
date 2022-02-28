@@ -1,0 +1,10 @@
+img {
+  &.zoomed {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+  }
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  width: 635px;
+  height: 345px;
+}

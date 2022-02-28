@@ -26,6 +26,7 @@
     "@material/layout-grid": "^13.0.0",
     "contentful": "^9.1.5",
     "dotenv": "^14.2.0",
+    "ng-zoom": "^1.1.5",
     "ngx-contentful-rich-text": "^0.5.1",
     "regenerator-runtime": "^0.13.9",
     "rxjs": "^7.5.2",
