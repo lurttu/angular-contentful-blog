@@ -13,6 +13,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BaseComponent } from './components/base.component';
 import { CustomParagraphComponent } from './components/custom-paragraph.component';
 import { EmbeddedAssetComponent } from './components/embedded-asset.component';
+import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { HighlightService } from './services/highlight.service';
 import WordleService from './services/wordle.service';
@@ -28,6 +29,7 @@ import { WordleComponent } from './wordle/wordle.component';
     StepComponent,
     WordleComponent,
     EmbeddedAssetComponent,
+    HomeComponent,
     CustomParagraphComponent,
     BaseComponent,
   ],
